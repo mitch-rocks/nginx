@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   nginx:
-    image: ghcr.io/mitch-rocks/nginx:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
 
     deploy:
       mode: global
