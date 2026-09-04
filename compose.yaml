@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: ghcr.io/mitch-rocks/nginx:latest
+
+    deploy:
+      mode: global
+      restart_policy:
+        condition: any
+
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+
+    networks:
+      - global
+
+networks:
+  global:
+    external: true
